@@ -9,6 +9,7 @@ import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser";
 import { getProduct, getProductRecommendations } from "@/lib/shopify";
 import LatestProducts from "@/partials/FeaturedProducts";
+import { formatCurrency } from "@/utils/currency";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -69,14 +70,22 @@ const ShowProductSingle = async ({ params }: { params: { slug: string } }) => {
 
               <div className="flex gap-2 items-center">
                 <h4 className="text-light dark:text-darkmode-light max-md:h2">
-                  {currencySymbol} {priceRange?.minVariantPrice.amount}{" "}
-                  {priceRange?.minVariantPrice?.currencyCode}
+                  {/* {currencySymbol} {priceRange?.minVariantPrice.amount}{" "}
+                  {priceRange?.minVariantPrice?.currencyCode} */}
+                  {formatCurrency(
+                    Number(priceRange?.minVariantPrice.amount),
+                    priceRange?.minVariantPrice?.currencyCode,
+                  )}
                 </h4>
                 {parseFloat(compareAtPriceRange?.maxVariantPrice.amount) > 0 ? (
                   <s className="text-light max-md:h3 dark:text-darkmode-light">
                     {currencySymbol}{" "}
-                    {compareAtPriceRange?.maxVariantPrice?.amount}{" "}
-                    {compareAtPriceRange?.maxVariantPrice?.currencyCode}
+                    {/* {compareAtPriceRange?.maxVariantPrice?.amount}{" "}
+                    {compareAtPriceRange?.maxVariantPrice?.currencyCode} */}
+                    {formatCurrency(
+                      Number(compareAtPriceRange?.maxVariantPrice?.amount),
+                      compareAtPriceRange?.maxVariantPrice?.currencyCode,
+                    )}
                   </s>
                 ) : (
                   ""
@@ -107,7 +116,7 @@ const ShowProductSingle = async ({ params }: { params: { slug: string } }) => {
 
               <div className="mb-8 md:mb-10">
                 <p className="p-2 max-md:text-sm rounded-md bg-theme-light dark:bg-darkmode-theme-light inline">
-                {estimated_delivery}
+                  {estimated_delivery}
                 </p>
               </div>
 

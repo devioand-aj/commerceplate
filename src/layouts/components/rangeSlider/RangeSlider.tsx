@@ -38,11 +38,9 @@ const RangeSlider = ({
     <div>
       <div className="flex justify-between">
         <p>
-          {currencySymbol}
           {minValue2} {maxPriceData?.currencyCode || currencyCode}
         </p>
         <p>
-          {currencySymbol}
           {maxValue2} {maxPriceData?.currencyCode || currencyCode}
         </p>
       </div>

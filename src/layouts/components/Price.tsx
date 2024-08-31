@@ -1,10 +1,11 @@
 import clsx from "clsx";
+import { shopify } from "@/config/config.json";
+import { formatCurrency } from "@/utils/currency";
 
 const Price = ({
   amount,
   className,
-  currencyCode = "USD",
-  currencyCodeClassName,
+  currencyCode = shopify.currencyCode,
 }: {
   amount: string;
   className?: string;
@@ -12,14 +13,7 @@ const Price = ({
   currencyCodeClassName?: string;
 } & React.ComponentProps<"p">) => (
   <p suppressHydrationWarning={true} className={className}>
-    {`${new Intl.NumberFormat(undefined, {
-      style: "currency",
-      currency: currencyCode,
-      currencyDisplay: "narrowSymbol",
-    }).format(parseFloat(amount))}`}
-    <span
-      className={clsx("ml-1 inline", currencyCodeClassName)}
-    >{`${currencyCode}`}</span>
+    {`${formatCurrency(Number(amount), currencyCode)}`}
   </p>
 );
 

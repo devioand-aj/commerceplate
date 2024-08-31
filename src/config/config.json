@@ -9,7 +9,7 @@
     "logo_darkmode": "/images/logo-darkmode.png",
     "logo_width": "150",
     "logo_height": "27",
-    "logo_text": "Commerceplate"
+    "logo_text": "Lumina Enterprise"
   },
 
   "settings": {
@@ -26,7 +26,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "Designed And Developed by [Recto Solutions](https://www.rectodev.com/)"
   },
 
   "navigation_button": {
@@ -36,14 +36,14 @@
   },
 
   "metadata": {
-    "meta_author": "Zeon Studio",
+    "meta_author": "Recto Solutions",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Shopify Storefront Boilerplate"
+    "meta_description": "Lumina Enterprise by Recto Solutions"
   },
 
   "shopify": {
-    "currencySymbol": "৳",
-    "currencyCode": "BDT",
+    "currencySymbol": "",
+    "currencyCode": "PKR",
     "collections": {
       "hero_slider": "hidden-homepage-carousel",
       "featured_products": "featured-products"

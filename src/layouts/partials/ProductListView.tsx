@@ -9,6 +9,7 @@ import { defaultSort, sorting } from "@/lib/constants";
 import { getCollectionProducts, getProducts } from "@/lib/shopify";
 import { PageInfo, Product } from "@/lib/shopify/types";
 import { titleify } from "@/lib/utils/textConverter";
+import { formatCurrency } from "@/utils/currency";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { BiLoaderAlt } from "react-icons/bi";
@@ -261,16 +262,21 @@ const ProductListView = ({ searchParams }: { searchParams: any }) => {
 
                     <div className="flex items-center gap-x-2 mt-2">
                       <span className="text-light dark:text-darkmode-light text-xs md:text-lg font-bold">
-                        ৳ {priceRange?.minVariantPrice?.amount}{" "}
-                        {priceRange?.minVariantPrice?.currencyCode}
+                        {formatCurrency(
+                          Number(priceRange?.minVariantPrice?.amount),
+                          priceRange?.minVariantPrice?.currencyCode,
+                        )}
                       </span>
                       {parseFloat(
                         compareAtPriceRange?.maxVariantPrice?.amount,
                       ) > 0 ? (
                         <s className="text-light dark:text-darkmode-light text-xs md:text-base font-medium">
-                          {currencySymbol}{" "}
-                          {compareAtPriceRange?.maxVariantPrice?.amount}{" "}
-                          {compareAtPriceRange?.maxVariantPrice?.currencyCode}
+                          {formatCurrency(
+                            Number(
+                              compareAtPriceRange?.maxVariantPrice?.amount,
+                            ),
+                            compareAtPriceRange?.maxVariantPrice?.currencyCode,
+                          )}
                         </s>
                       ) : (
                         ""
